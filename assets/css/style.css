@@ -1,0 +1,406 @@
+/*
+ *|=======================================|
+ *| [style.css]
+ *|
+ *| Hold the styles for the beetty app
+ *| 
+ *| 
+ *| @author Richard Blondet
+ *|=======================================|
+*/
+
+/*! normalize.css v4.2.0 | MIT License | github.com/necolas/normalize.css */button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #da1f34;
+	width: 100%;
+	height: 100%;
+}
+div[data-ng-class="animation"] {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+
+}
+body {
+	background-color: #da1f34;
+	background-image: url('../imgs/app-body-bg-img.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: repeat-y;
+}
+.wrapper {
+	background-color: #fff;
+	position: absolute;
+	border-radius: 100px;
+}
+.row {
+	width: 100%;
+}
+.slot-container {
+	position: absolute;
+	top: 380px;
+	left: 7px;
+	background-color: transparent;
+	background-image: url('../imgs/app-slot-bg.png');
+	height: 248px;
+	width: 708px;
+}
+.slot-wrapper {
+	background-color: #86837a;
+    border: solid 1px #b09038;
+    position: absolute;
+    top: 35px;
+    left: 80px;
+    padding: 15px 19px;
+    -webkit-box-shadow: inset 0 0 13px #000;
+    box-shadow: inset 0 0 13px #000;
+}
+.slot {
+	background-color: #fff;
+	background-image:url("../imgs/app-fruits-reel.png");
+	background-repeat: repeat-y;
+	width: 148px;
+	height: 148px;
+	float: left;
+	border: solid 1px #da1f34;
+	background-position:0 4px;
+	margin-right: 27px;
+	-webkit-box-shadow: inset 0 10px 20px #787878;
+	box-shadow: inset 0 10px 20px #787878;
+}
+#slot3 {
+	margin-right: 0;
+}
+.motion {
+	background-image: url("../imgs/app-fruits-reel-blur.png");
+	background-repeat: repeat-y;
+}
+#result {
+	margin:20px 0;
+	font-size:18px;
+	font-weight:bold;
+	height:22px;
+}
+#betty-spoon {
+	background-color: transparent;
+	background-image: url('../imgs/app-spoon-logo.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 768px;
+	height: 304px;
+	z-index: 2;
+}
+#press-the-spoon {
+	background-color: transparent;
+	background-image: url('../imgs/app-press-the-spoon.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 110px;
+    left: 490px;
+	width: 224px;
+	height: 110px;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+}
+#press-the-spoon.ready {
+	opacity: 1;
+}
+#press-the-spoon.over {
+	opacity: 0;
+}
+#control {
+	position: absolute;
+    top: 50px;
+    left: 0;
+    width: 515px;
+    height: 205px;
+    z-index: 99;
+}
+#control:active,
+#control:focus {
+	background-color: transparent;
+	opacity: 0;
+}
+#control.disabled {
+    display: none;
+}
+/* View Animation Handler */
+.view {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.view.ng-enter,
+.view.ng-leave {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.slide .view.ng-enter {
+	left: 100%;
+}
+.slide .view.ng-enter.ng-enter-active {
+	left: 0%;
+}
+.slide .view.ng-leave {
+	left: 0%;
+}
+.slide .view.ng-leave.ng-leave-active {
+	left: -100%;
+}
+.slide-back .view.ng-enter {
+  left: -100%;
+}
+.slide-back .view.ng-enter.ng-enter-active {
+  left: 0%;
+}
+.slide-back .view.ng-leave {
+  left: 0%;
+}
+.slide-back .view.ng-leave.ng-leave-active {
+  left: 100%;
+}
+#listo-para-ganar {
+	background-color: transparent;
+	background-image: url('../imgs/app-listo-para-ganar-copy.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 260px;
+	left: -24px;
+	width: 768px;
+	height: 112px;
+}
+#listo-para-ganar.ganaste {
+	background-image: url('../imgs/app-ganaste.png');
+	height: 90px;
+}
+#listo-para-ganar.perdiste {
+	background-image: url('../imgs/app-perdiste.png');
+	height: 90px;
+}
+.slot-wrapper.register .slot {
+    background-image: url("../imgs/app-fruits-reel-blur.png");
+}
+.slot-wrapper.register .slot:nth-child(1) {
+    background-position: 0 -84px;
+}
+.slot-wrapper.register .slot:nth-child(2) {
+    background-position: 0 0;
+}
+.slot-wrapper.register .slot:nth-child(3) {
+    background-position: 0 205px;
+}
+#register-form-container {
+	position: absolute;
+	top: 640px;
+	left: 0;
+	width: 100%;
+}
+.form-title {
+    text-align: center;
+    font-size: 35px;
+    color: #db1e34;
+}
+.form-group {
+	margin-top: 42px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 580px;
+}
+.col {
+    width: 50%;
+    float: left;
+}
+.col-full {
+	width: 100%;
+	float: none;
+	clear: both;
+}
+.betty-input {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    border-radius: 23px;
+    font-size: 1.3em;
+    box-shadow: inset 0 2px 3px #333;
+    text-transform: uppercase;
+    padding: 8px 5px 5px 5px;
+    margin-bottom: 22px;
+    border: solid 1px #999;
+}
+.betty-input:focus, 
+.betty-input:active {
+	outline: none;
+	border: dashed 1px #ddb012;
+}
+.museo-500 {
+	font-family: 'Museo Slab 500';
+}
+.museo-300 {
+	font-family: 'Museo Slab 300';
+}
+.red-button {
+    background-color: transparent;
+    background-image: url('../imgs/app-play-button.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 61px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 35px;
+    line-height: 58px;
+}
+#play-button {
+    position: relative;
+    top: 10px;
+}
+#app-slot-states {
+    position: absolute;
+    top: 690px;
+    width: 100%;
+}
+#app-slot-states .slot-states-wrapper {
+	display: block;
+	width: 325px;
+	margin: 0 auto;
+}
+.slot-state {
+    background-color: transparent;
+    background-image: url('../imgs/app-yet.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    display: block;
+    float: left;
+}
+.slot-state.good {
+	background-image: url('../imgs/app-good.png');
+}
+.slot-state.wrong {
+	background-image: url('../imgs/app-wrong.png');
+}
+#confetti{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	pointer-events: none;
+}
+#bases-promocion {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+#bases-promocion a {
+    text-decoration: underline;
+    color: #333;
+}
+#betty-spoon.bases-promo {
+	top: 90px;
+	width: 325px;
+    height: 165px;
+}
+#template-type-page-title {
+    position: absolute;
+    width: 400px;
+    left: 242px;
+    top: 134px;
+    text-transform: uppercase;
+    font-size: 28px;
+}
+#template-type-content-wrapper {
+    position: absolute;
+    top: 218px;
+    width: 100%;
+}
+#template-type-content {
+    position: relative;
+    width: 570px;
+    display: block;
+    margin: 0 auto;
+    height: 575px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 10px;
+}
+#template-type-content::-webkit-scrollbar {
+    width: 6px;
+}
+#template-type-content::-webkit-scrollbar-track {
+    background-color: #bfc9b7;
+    border-radius: 5px;
+}
+#template-type-content::-webkit-scrollbar-thumb {
+    border-radius: 14px;
+    background-color: #737571;
+}
+#template-type-content .alpha {
+    list-style: none;
+    padding: 0;
+}
+#template-type-content .nume {
+    list-style: decimal;
+    list-style-type: decimal;
+    
+}
+#template-type-content .alpha li,
+#template-type-content .nume li {
+    font-size: 18px;
+    margin: 25px 0;
+}
+#back-button {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -95px;
+}
+#back-button.page-bases-promo,
+#back-button.play-view {
+	font-size: 24px;
+}
+
+/* Styles for portrait */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { 
+	.wrapper {
+	    top: 24px;
+	    left: 24px;
+		width: 722px;
+	    height: 978px;
+	    background-color: transparent;
+	    background-image: url('../imgs/app-wrapper-bg-img.jpg');
+	    background-size: cover;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    z-index: 1;
+	}
+
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+*|=================================================
+*| Richard Blondet 
+*| http://richardblondet.com/ 
+*| Full Stack Developer living in Santo Domingo, DO
+*|=================================================
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=768, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    	
+    <!-- POLYFILLS -->
+    <!-- END POLYFILLS -->
+    <!-- SCRIPTS -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/jquery/jquery-migrate.min.js"></script>
+
+	<script src="assets/vendor/angular/angular.min.js"></script>
+	<script src="assets/vendor/angular/angular-sanitize.min.js"></script>
+	<script src="assets/vendor/angular/angular-touch.min.js"></script>
+	<script src="assets/vendor/angular/angular-animate.min.js"></script>
+	<script src="assets/vendor/angular/angular-route.min.js"></script>
+	<script src="assets/vendor/ngMask/ngMask.min.js"></script>
+	
+	<script src="assets/vendor/jquery/jquery.spritely.js"></script>
+	<script src="assets/vendor/jquery/jquery.bgpos.js"></script>
+	<script src="app/slot.js"></script>
+	<script src="app/config.js"></script>
+	
+	<script src="app/factories/slot.factory.js"></script>
+	<script src="app/directives/slot.directive.js"></script>
+
+	
+	<script src="app/directives/confetti.directive.js"></script>
+	
+	<script src="app/factories/sounds.service.js"></script>
+
+	<script src="app/controllers/register.controller.js"></script>
+	<script src="app/controllers/play.controller.js"></script>
+	<script src="app/controllers/terms.controller.js"></script>
+	<script src="app/controllers/winners.controller.js"></script>
+	<!-- END SCRIPTS -->
+	
+
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/fonts.css" />
+
+	<title>Betty Croket</title>
+</head>
+	
+<body class="" data-ng-app="betty-crocket-app">
+	
+	<!-- [ VIEW ] -->
+	<div data-ng-class="animation">
+		<canvas id="confetti" width="1" height="1" confetti></canvas>
+		<div data-ng-view class="view"></div>
+	</div>
+	<!-- [ /VIEW ] -->
+	
+</body>
+</html>

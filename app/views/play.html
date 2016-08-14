@@ -1,0 +1,23 @@
+<div id="betty-spoon"></div>
+<div id="control" data-ng-click="play()" data-ng-class="{'disabled': !machine.button }"></div>
+<div class="wrapper">
+	<div id="press-the-spoon" data-ng-class="{'ready': ( machine.slots.length === 3 ), 'over': textResult!=='play' }"></div>
+	<div id="listo-para-ganar" data-ng-class="{ 'ganaste': textResult==='ganaste' , 'perdiste': textResult==='perdiste' }"></div>
+	<div class="slot-container">
+		<div class="slot-wrapper">
+			<div id="slot1" class="slot" slot-directive max="30" step="3"></div>
+			<div id="slot2" class="slot" slot-directive max="45" step="2"></div>
+			<div id="slot3" class="slot" slot-directive max="50" step="1"></div>
+		</div>
+	</div> 
+	<div id="app-slot-states">
+		<div class="slot-states-wrapper">
+			<div class="slot-state " data-ng-class="{ 'good': slot1.completed }"></div>
+			<div class="slot-state " data-ng-class="{ 'good': updateIndicator(slot2, (win[slot1.pos] === win[slot2.pos])), 'wrong': updateIndicator(slot2, (win[slot1.pos] !== win[slot2.pos])) }"></div>
+			<div class="slot-state " data-ng-class="{ 'good': updateIndicator(slot3, (win[slot1.pos] === win[slot3.pos])), 'wrong': updateIndicator(slot3, (win[slot1.pos] !== win[slot3.pos])) }"></div>
+		</div>
+	</div>
+	<div id="back-button" class="play-view red-button" data-ng-click="reset()">
+		salir
+	</div>
+</div>

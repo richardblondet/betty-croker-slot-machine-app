@@ -1,0 +1,46 @@
+<div id="betty-spoon"></div>
+<div class="wrapper">
+	<div id="listo-para-ganar"></div>
+	<div class="slot-container">
+		<div class="slot-wrapper register">
+			<div id="slot1" class="slot"></div>
+			<div id="slot2" class="slot"></div>
+			<div id="slot3" class="slot"></div>
+		</div>
+	</div> 
+	<div id="register-form-container">
+		<div class="form-title museo-500">
+			Ingresa tus datos:
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col">
+					<input type="text" class="betty-input museo-300" placeholder="nombre" data-ng-model="player.name">
+				</div>
+				<div class="col">
+					<input type="text" class="betty-input museo-300" placeholder="cédula" data-ng-model="player.cedula" mask="999-9999999-9">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<input type="text" class="betty-input museo-300" placeholder="teléfono" data-ng-model="player.phone" mask="(849)-999-9999" restrict="reject">
+				</div>
+				<div class="col">
+					<input type="email" class="betty-input museo-300" placeholder="correo" data-ng-model="player.email">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-full">
+					<div id="play-button" class="red-button museo-500" data-ng-click="play()">
+						Jugar
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div>
+	<div id="bases-promocion">
+		<a class="museo-300" data-ng-click="terms()">	
+			Bases de la promoci&oacute;n
+		</a>
+	</div>
+</div>
